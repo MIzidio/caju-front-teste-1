@@ -1,0 +1,41 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22.x"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test:dev
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: yarn init:db && yarn dev
+          browser: chrome
+
+      - name: Build the app
+        run: yarn build
+
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          yarn deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
