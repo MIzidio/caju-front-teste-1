@@ -5,11 +5,12 @@
 	"type": "module",
 	"homepage": "https://MIzidio.github.io/caju-front-test-1",
 	"scripts": {
-		"deploy": "gh-pages -d build",
+		"deploy": "gh-pages -d dist",
 		"dev": "vite",
 		"init:db": "json-server --watch db.json",
 		"build": "CI=false && tsc && vite build",
 		"test:dev": "jest --watch --verbose --no-cache",
+		"test": "jest --verbose --no-cache",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview"
 	},
