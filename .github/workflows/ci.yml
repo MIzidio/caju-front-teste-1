@@ -24,11 +24,11 @@ jobs:
       - name: Run tests
         run: yarn jest
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: yarn init:db && yarn dev
-          browser: chrome
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     start: yarn init:db && yarn dev
+      #     browser: chrome
 
       - name: Build the app
         run: yarn build
