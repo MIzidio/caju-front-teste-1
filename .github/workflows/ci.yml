@@ -24,11 +24,13 @@ jobs:
       - name: Run tests
         run: yarn test
 
-      # - name: Cypress run
-      #   uses: cypress-io/github-action@v6
-      #   with:
-      #     start: yarn init:db && yarn dev
-      #     browser: chrome
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: yarn init:db && yarn dev
+          wait-on: http://localhost:5173
+          wait-on-timeout: 60
+          browser: chrome
 
       - name: Build the app
         run: yarn build
