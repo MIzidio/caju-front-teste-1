@@ -5,13 +5,14 @@ import eslintPlugin from "@nabla/vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), eslintPlugin()],
-  server: {
-    port: 3001,
-  },
-  resolve: {
-    alias: {
-      "~": path.resolve(__dirname, "src"),
-    },
-  },
+	base: "/caju-front-test-1/",
+	plugins: [react(), eslintPlugin()],
+	server: {
+		port: 3001,
+	},
+	resolve: {
+		alias: {
+			"~": path.resolve(__dirname, "src"),
+		},
+	},
 });
