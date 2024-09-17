@@ -22,7 +22,7 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: yarn test:dev
+        run: yarn jest
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
