@@ -33,3 +33,8 @@ export const Actions = styled.div`
     cursor: pointer;
   }
 `;
+
+export const Review = styled.div`
+  display: flex;
+  gap: 4px;
+`;
